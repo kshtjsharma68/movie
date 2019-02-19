@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import {connect} from 'react-redux';
 
 class Home extends Component {
@@ -10,11 +10,20 @@ class Home extends Component {
 	render() {
 		return(
 				<View>
+					<ImageBackground source={require('../../Assets/Images/mountain.jpg')} style={styles.ImageBackground}>
 					<Text>This is the home page text</Text>
+					</ImageBackground>
 				</View>
 			);
 		}
 };
+
+const styles = StyleSheet.create({
+	ImageBackground: {
+		height: '100%',
+		width: '100%'
+	}
+});
 
 const mapStateToProps = (state) => {
 	return state;
