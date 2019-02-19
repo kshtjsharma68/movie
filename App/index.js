@@ -1,11 +1,15 @@
 import React,  {Component} from 'react';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import createSagaMiddleware from 'reduc-saga';
+import {createStore, applyMiddleware} from 'redux';
 import AllReducers from './reducers/index';
 import Navigator from './Navigator/index';
 
-
-const store  = createStore(AllReducers);
+const sagaMiddleware = createSagaMiddleware();
+const store  = createStore(
+					AllReducers,
+					applyMiddleware(sagaMiddleware)
+					);
 
 export default class AppIndex extends Component {
 	constructor(props) {
